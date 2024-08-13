@@ -24,7 +24,7 @@ export default function SearchResults() {
 
   const fetchSearchResults = async (query) => {
     try {
-      const response = await fetch(`http://localhost:8081/search?q=${encodeURIComponent(query)}`);
+      const response = await fetch(`https://gaha-website-002d2aeac73a.herokuapp.com/search?q=${encodeURIComponent(query)}`);
       if (!response.ok) {
         throw new Error('Search failed');
       }

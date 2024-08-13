@@ -11,7 +11,7 @@ export default function Default() {
                 <p>default page</p>
                 <div>cool brand information</div>
                 <div>nice pictures</div>
-                <button onClick={() => navigate("/singin")}>
+                <button onClick={() => navigate("/signin")}>
                  Sign In
                 </button>
             </article>

@@ -7,7 +7,7 @@ export default function Read() {
     const [employee, setEmployee] = useState({});
 
     useEffect(() => {
-        axios.get('http://localhost:8081/read/' + username)
+        axios.get('https://gaha-website-002d2aeac73a.herokuapp.com/read/' + username)
             .then(res => {
                 setEmployee(res.data[0]);
                 console.log(res);

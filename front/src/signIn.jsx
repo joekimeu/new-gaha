@@ -20,7 +20,7 @@ export default function SignIn() {
     setError(null);
 
     try {
-      const res = await axios.post('http://localhost:8081/signin', data);
+      const res = await axios.post('https://gaha-website-002d2aeac73a.herokuapp.com/signin', data);
       if (res.data.token) {
         login(res.data.token);
         navigate('/');

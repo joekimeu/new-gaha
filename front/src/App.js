@@ -70,6 +70,7 @@ export default function App() {
         <Route path="/trainings" element={<Trainings />} />
         <Route path="/prospective" element={<Prospective />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/create" element={<Create />} />
       </Route>
     </Routes>
   );

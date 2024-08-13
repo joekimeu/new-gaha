@@ -19,7 +19,7 @@ const ClockInOut = () => {
 
     const fetchHistory = async () => {
         try {
-            const res = await axios.get('http://localhost:8081/clockhistory/' + employeeUsername, {
+            const res = await axios.get('https://gaha-website-002d2aeac73a.herokuapp.com/clockhistory/' + employeeUsername, {
                 headers: { Authorization: auth.token }
             });
             setHistory(res.data);
@@ -30,7 +30,7 @@ const ClockInOut = () => {
 
     const fetchCurrentStatus = async () => {
         try {
-            const res = await axios.get('http://localhost:8081/currentstatus', {
+            const res = await axios.get('https://gaha-website-002d2aeac73a.herokuapp.com/currentstatus', {
                 headers: { Authorization: auth.token }
             });
             setCurrentStatus(res.data);
@@ -44,7 +44,7 @@ const ClockInOut = () => {
         setError(null);
         setMessage(null);
         try {
-            const res = await axios.post(`http://localhost:8081/${action}`, {}, {
+            const res = await axios.post(`https://gaha-website-002d2aeac73a.herokuapp.com/${action}`, {}, {
                 headers: { Authorization: auth.token }
             });
             setMessage(res.data.message);

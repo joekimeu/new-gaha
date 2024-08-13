@@ -9,7 +9,7 @@ export default function Home() {
 
     // Fetch employees from server
     useEffect(() => {
-        axios.get('http://localhost:8081/home')
+        axios.get('https://gaha-website-002d2aeac73a.herokuapp.com/home')
             .then(res => {
                 console.log('Data fetched:', res.data);
                 setData(res.data);
@@ -24,7 +24,7 @@ export default function Home() {
 
     // Delete an employee with button push
     const handleDelete = (username) => {
-        axios.delete('http://localhost:8081/delete/' + username)
+        axios.delete('https://gaha-website-002d2aeac73a.herokuapp.com/delete/' + username)
             .then(res => {
                 setData(data.filter(employee => employee.username !== username));
             })

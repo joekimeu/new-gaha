@@ -3,6 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Create() {
+    const [confirmedPassword, setConfirmedPassword] = useState("")
+
+    const handleConfirmedPassword = (e) => {
+        e.preventDefault();
+        setConfirmedPassword(e.target.value);
+    }
+
     const [values, setValues] = useState({
         username: '',
         password: '',
@@ -16,7 +23,19 @@ export default function Create() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8081/employees', values)
+
+        // Check if passwords match
+        if (values.password !== confirmedPassword) {
+            alert('Passwords do not match. Please try again.');
+            return;
+        }
+
+        // Confirm the action
+        if (!window.confirm('Are you sure you want to create this user?')) {
+            return;
+        }
+
+        axios.post('https://gaha-website-002d2aeac73a.herokuapp.com/employees', values)
             .then(res => {
                 console.log(res);
                 navigate('/');
@@ -40,6 +59,10 @@ export default function Create() {
                     <div className='mb-3'>
                         <label htmlFor="password" className='form-label'>Password</label>
                         <input type="password" name="password" className="form-control" id="password" onChange={handleChange} />
+                    </div>
+                    <div className='mb-3'>
+                        <label htmlFor="confirmPassword" className='form-label'>Confirm Password</label>
+                        <input type="password" name="confirmPassword" className="form-control" id="confirmPassword" onChange={handleConfirmedPassword} />
                     </div>
                     <div className='mb-3'>
                         <label htmlFor="email" className='form-label'>Email</label>

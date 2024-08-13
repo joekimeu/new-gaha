@@ -12,7 +12,7 @@ const PunchHistory = () => {
 
     const fetchHistory = async () => {
         try {
-            const res = await axios.get('http://localhost:8081/clockhistory/' + username, {
+            const res = await axios.get('https://gaha-website-002d2aeac73a.herokuapp.com/clockhistory/' + username, {
                 headers: { Authorization: auth.token }
             });
             setHistory(res.data);
